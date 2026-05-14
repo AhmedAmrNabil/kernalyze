@@ -66,4 +66,6 @@ test_generator_run: test_generator
 
 compile_commands:
 	@echo "Generating compile_commands.json..."
-	@bear --output build/compile_commands.json -- make clean all
+	@make clean
+	@mkdir -p bin
+	@bear --output bin/compile_commands.json -- make all
