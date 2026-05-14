@@ -60,3 +60,5 @@ os-sim
 process
 *.perf
 *.log
+.envrc
+.direnv

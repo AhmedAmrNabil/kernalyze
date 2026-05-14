@@ -72,7 +72,7 @@ int main(int argc, char* argv[]) {
     clkPID = createClk();
 
     // Read processes from file
-    int processCount = readProcessesFile(&processesArray);
+    int processCount = readProcessesFile();
     if (processCount <= 0) {
         printLog(CONSOLE_LOG_ERROR, "PG", "No processes found in the file");
         raise(SIGINT);
