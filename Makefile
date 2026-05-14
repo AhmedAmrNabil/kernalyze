@@ -31,8 +31,6 @@ $(TARGET_PROCESS_GENERATOR): $(OBJ_FILES_PROCESS_GENERATOR)
 	@mkdir -p $(dir $@)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
-
-
 # Run process executable
 run_process: $(TARGET_PROCESS)
 	@echo "Running process..."
@@ -57,9 +55,7 @@ clean:
 	rm -rf $(OBJ)
 	rm -f $(TARGET_PROCESS) $(TARGET_PROCESS_GENERATOR)
 
-
 # Test generator
-
 test_generator:
 	@echo "Compiling test generator..."
 	$(CC) $(CFLAGS) -o bin/test_generator test_generator.c
@@ -67,3 +63,7 @@ test_generator:
 test_generator_run: test_generator
 	@echo "Running test generator..."
 	@./bin/test_generator
+
+compile_commands:
+	@echo "Generating compile_commands.json..."
+	@bear --output build/compile_commands.json -- make clean all
